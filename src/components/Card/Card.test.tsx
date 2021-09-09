@@ -12,11 +12,13 @@ test("Render Card with its props and actions are called after click buttons", ()
 
   const clickPrevAction = jest.fn();
   const clickNextAction = jest.fn();
+  const clickEditAction = jest.fn();
 
   const {getByText} = render(
     <Card
       comment={cardProps.comment}
       nameCandidate={cardProps.name}
+      onClickEdit={clickEditAction}
       onClickNext={clickNextAction}
       onClickPrev={clickPrevAction}
     />,

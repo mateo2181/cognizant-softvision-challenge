@@ -7,18 +7,30 @@ interface Props {
   comment: string;
   onClickPrev: any;
   onClickNext: any;
+  onClickEdit: any;
 }
 
-export default function Card({nameCandidate, comment, onClickPrev, onClickNext}: Props) {
+export default function Card({
+  nameCandidate,
+  comment,
+  onClickPrev,
+  onClickNext,
+  onClickEdit,
+}: Props) {
   return (
     <div className={styles.content}>
       <div>
         <div className={styles.name}>{nameCandidate}</div>
         <div className={styles.comment}>{comment}</div>
       </div>
-      <div>
-        <button onClick={onClickPrev}> {"<"} </button>
-        <button onClick={onClickNext}> {">"} </button>
+      <div className={styles.right}>
+        <button className={styles.btnEdit} onClick={onClickEdit}>
+          Edit
+        </button>
+        <div className={styles.btnPositions}>
+          <button onClick={onClickPrev}> {"<"} </button>
+          <button onClick={onClickNext}> {">"} </button>
+        </div>
       </div>
     </div>
   );

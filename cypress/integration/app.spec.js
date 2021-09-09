@@ -25,7 +25,7 @@ describe("Integration Testing", () => {
 
   it("move candidate to the next step", () => {
     cy.get(`[data-testid=list]`).first().children().first().find("button:last").click();
-    cy.get(`[data-testid=list]`).first().contains("No hay candidatos");
+    cy.get(`[data-testid=list]`).first().contains("Not candidates");
     cy.get(`[data-testid=list]`).eq(1).children().should("have.length", 2);
   });
 

@@ -12,16 +12,18 @@ test("Should render all the cards passed by parameter", () => {
   const candidatesProp = candidates as Candidate[];
   const clickPrevAction = jest.fn();
   const clickNextAction = jest.fn();
+  const clickEditAction = jest.fn();
 
   const {getByRole, getByTestId} = render(
     <Column
       candidates={candidatesProp}
-      name={column.name}
+      name={column}
+      onClickEdit={clickEditAction}
       onClickNext={clickNextAction}
       onClickPrev={clickPrevAction}
     />,
   );
 
-  expect(getByRole("heading").textContent).toBe(column.name);
+  expect(getByRole("heading").textContent).toBe(column);
   expect(getByTestId("list").childNodes).toHaveLength(candidatesProp.length);
 });
