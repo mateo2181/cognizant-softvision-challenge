@@ -1,11 +1,9 @@
-interface columnTypes {
-  name: "Entrevista inicial" | "Entrevista técnica" | "Oferta" | "Asignación" | "Rechazo";
-}
+import {Candidate} from "../types/candidate";
 
-export const columnTypes: columnTypes[] = [
-  {name: "Entrevista inicial"},
-  {name: "Entrevista técnica"},
-  {name: "Oferta"},
-  {name: "Asignación"},
-  {name: "Rechazo"},
+export const columnTypes: Candidate["step"][] = [
+  "Entrevista inicial",
+  "Entrevista técnica",
+  "Oferta",
+  "Asignación",
+  "Rechazo",
 ];

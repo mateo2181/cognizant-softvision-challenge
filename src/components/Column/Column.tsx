@@ -10,6 +10,7 @@ interface Props {
   candidates: Candidate[];
   onClickPrev: any;
   onClickNext: any;
+  onClickEdit: any;
   firstColumn?: boolean;
   newCandidate?: any;
 }
@@ -19,6 +20,7 @@ export default function Column({
   candidates,
   onClickPrev,
   onClickNext,
+  onClickEdit,
   firstColumn = false,
   newCandidate,
 }: Props) {
@@ -34,17 +36,18 @@ export default function Column({
               key={candidate.id}
               comment={candidate.comments}
               nameCandidate={candidate.name}
+              onClickEdit={() => onClickEdit(candidate)}
               onClickNext={() => onClickNext(candidate.id)}
               onClickPrev={() => onClickPrev(candidate.id)}
             />
           ))
         ) : (
-          <div className={styles.noContent}> No hay candidatos </div>
+          <div className={styles.noContent}> Not candidates </div>
         )}
       </div>
       {firstColumn && (
         <button className={styles.add} data-cy="add-candidate" onClick={newCandidate}>
-          Agregar Candidato
+          Add Candidate
         </button>
       )}
     </div>

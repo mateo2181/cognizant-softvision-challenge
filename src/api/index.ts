@@ -4,6 +4,6 @@ import candidates from "./candidates.json";
 
 export default {
   candidates: {
-    list: (): Promise<Candidate[]> => Promise.resolve(JSON.parse(JSON.stringify(candidates))),
+    list: (): Promise<Candidate[]> => Promise.resolve(candidates as Candidate[]),
   },
 };
